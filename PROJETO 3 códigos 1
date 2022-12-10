@@ -1,0 +1,50 @@
+1° COMANDO
+ssh cloud_user@3.85.84.82
+para concetar a sua conta AWS
+
+2° COMANDO
+aws configure
+Para configurar e atrelar a conta com chaves de acesso
+
+3° COMANDO
+ls
+verificar se esta correto
+
+4° COMANDO
+ cd lab-terraform-eks/
+entrar no diretorio de trabalho
+
+5° COMANDO
+ls
+verificar se esta no diretorio e localizar o que tem dentro 
+
+6° COMANDO
+vim kubernetes.tf
+verficar nosso arquivo de configuração do terraform
+
+
+7° COMANDO 
+vim eks-cluster.tf
+verificar provisiona todos os recursos
+como grupos de auto scaling
+
+
+8° COMANDO
+vim security-groups.tf
+ver os grupos de segurança
+
+
+9° COMANDO
+vim vpc.tf
+definindo nossa variavel para nossa regiao
+declarando nosso modulo vpc configurando nossas sub redes publica e privadas
+
+
+10° COMANDO
+vim version.tf
+definindo nossas diferentes versões de nossos provedores
+
+
+11° COMANDO
+vim outputs
+declarando todas as nossas variaveis de saida

@@ -1,0 +1,57 @@
+1° COMANDO
+terraform init
+para iniciar trabalho no diretorio
+
+2° COMANDO
+terraform plan
+para fazer um plano de terraformatação, verifique se não ha nenhum erro 
+esse comando tambem nos mostrara tudo que ira ser instalado
+
+3° COMANDO 
+terraform apply
+para implantar o nosso cluster, digite yes para confirmar
+
+4° COMANDO
+aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
+para configurar o kubectl, e tambem ira se conectar com o cluster e gerenciar nosso cluster EKS
+
+5° COMANDO
+kubectl get cs 
+para confirmar se esta funcionando e verificar se esta configurado corretamente
+se os 3 status estiverem com "saudavel ou healthy" o cluster esta pronto
+
+6° COMANDO
+wget https://raw.githubusercontent.com/linuxacademy/content-terraform-2021/main/lab_kubernetes_resources.tf
+em sequencia digite "yes" para confirmar e dê um ls para verificar se foi baixado
+esse comando ira baixar os arquivos lab_kubernetes_resources.tf que ja contem a configuração 
+para nossas implantações NGINX 
+
+7° COMANDO 
+vim lab_kubernetes_resources.tf
+para dar uma olhada no arquivo e declarar nossos recursos
+de implantação do kubernetes para nginx, feito isso estamos prontos para implantar nossos 
+pods NGINX
+
+8° COMANDO
+terraform plan
+fazer um plano de terraform para fazer um teste, feito isso mostrara as mudanças que serão feitas
+
+9° COMANDO
+terraform apply
+para aplicar nosso terraform e implantar nossos pods em nosso cluster não esqueça de digitar
+yes para confirmar o processo, feito isso role para cima para ver que ficou tudo verde e que todos
+os recursos foram adicionados
+
+10° COMANDO 
+kubectl get deployments 
+para verificar que nossos NGINX estão funcionado 
+
+11° COMANDO 
+terraform destroy
+para destruir nosso cluster EKS, apos aguardar a destruição ira aparecer em verde
+destruição completa ou "destroy complete"
+
+12° COMANDO 
+terraform show
+esse código ira confirmar que todo nosso cluster EKS foi destruido
+para isso a tela tera que estar em branco

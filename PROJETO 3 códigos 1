@@ -1,5 +1,5 @@
 1° COMANDO
-ssh cloud_user@3.85.84.82
+ssh cloud_user@id da sua conta
 para concetar a sua conta AWS
 
 2° COMANDO
@@ -48,3 +48,22 @@ definindo nossas diferentes versões de nossos provedores
 11° COMANDO
 vim outputs
 declarando todas as nossas variaveis de saida
+
+KUBERNETS.TF
+arquivo de configuração do terraform
+
+EKS-CLUSTER.TF
+provisiona todos os recursos
+como grupos de auto scaling
+
+SECURITY GROUPS.TF
+que define os grupos de segurança
+
+VERSIONS.TF
+declara a versão dos provedores usados
+
+VPC.TF
+que tem toda a nossa rede
+
+OUTPUTS.TF
+que contém nossas variaveis de saída

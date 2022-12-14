@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion : 2010-09-09
+
+Descrição : Modelo para criar uma instância do EC2 e habilitar o SSH
+
+Parâmetros :
+  Nome da chave :
+    Descrição : Nome do par de chaves SSH
+    Digite : ' AWS::EC2::KeyPair::KeyName '
+    ConstraintDescription : forneça o nome de um par de chaves SSH existente
+
+Recursos :
+  MyEC2Instance :
+    Tipo : ' AWS::EC2::Instance '
+    Propriedades :
+      Tipo de instância : t2.micro
+      ImageId : ami-0d5eff06f840b45e9
+      KeyName : !Ref KeyName
+      Grupos de segurança :
+        - !Ref  InstanceSecurityGroup
+      Etiquetas :
+        - Chave : Nome
+          Valor : Minha instância de CF
+  InstanceSecurityGroup :
+    Tipo : ' AWS::EC2::SecurityGroup '
+    Propriedades :
+      Nome do Grupo : MyDMZSecurityGroup
+      GroupDescription : Ativar acesso SSH via porta 22
+      SecurityGroupIngress :
+        IPProtocolo : tcp
+        FromPort : 22
+        ToPort : 22
+        CidrIp : 0.0.0.0/0
+
+Saídas :
+  ID da instância :
+    Descrição : o ID da instância
+    Valor : !Ref MyEC2Instance
